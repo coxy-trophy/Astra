@@ -1,5 +1,4 @@
 import { useState } from "react";
-import getConfig from 'next/config';
 import ReactMarkdown from "react-markdown";
 import Head from "next/head";
 import { createParser } from "eventsource-parser";
