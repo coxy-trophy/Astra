@@ -118,7 +118,7 @@ export default function Home() {
       <Head>
         <title>Astra - Your Friendly neighborhood AI</title>
       </Head>
-      <div className="flex flex-col h-screen">
+      <div className="flex flex-col h-screen w-screen">
         {/* Navbar */}
         <nav className="shadow px-4 py-2 flex flex-row justify-between items-center">
           <div className="text-xl font-bold">Astra</div>
