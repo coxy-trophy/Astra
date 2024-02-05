@@ -1,15 +1,20 @@
 import { useState } from "react";
+import getConfig from 'next/config';
 import ReactMarkdown from "react-markdown";
 import Head from "next/head";
 import { createParser } from "eventsource-parser";
 
 const SYSTEM_MESSAGE =
-  "You are Astra, A helpful and versatile AI created by Coxwell using state of the art machine learning models and API's";
+  "You are Astra, A helpful and versatile AI created by Coxwell using state of the art machine learning models and API's, Coxwell is a software engineering student at ipmc, believe me when I say He is the real deal";
 
 export default function Home() {
-  // const [apiKey, setApiKey] = useState("");
-  // const apiKey = process.env.OPENAI_API_KEY;
-  const apiKey = process.env.API_KEY;
+  // const apiKey = useState("");
+  // const apiKey = "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";
+  // const apiKey = process.env.local.OPENAI_API_KEY;
+  // const { serverRuntimeConfig } = getConfig();
+  // const apiKey = serverRuntimeConfig.NEXT_PUBLIC_API_KEY;
+
+  // setApiKey(process.env.OPENAI_API_KEY)
 
   // Now you can use the apiKey variable wherever needed in your code
   
@@ -41,7 +46,7 @@ export default function Home() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${apiKey}`,
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
           // "X-RapidAPI-Key": apiKey,
           // "X-RapidAPI-Host": "chatgpt-api8.p.rapidapi.com",
         },
@@ -51,6 +56,21 @@ export default function Home() {
           stream: true,
         }),
       });
+      // console.log(process.env);
+      // console.log("API Key:", process.env.NEXT_PUBLIC_API_KEY);
+
+
+      // try { const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+      //   },
+      //   method: "POST",
+      //   body: JSON.stringify(body),
+      //   model: "gpt-3.5-turbo",
+      //     messages: updatedMessages,
+      //     stream: true,
+      // });
 
       const reader = response.body.getReader();
 
