@@ -9,7 +9,7 @@ const SYSTEM_MESSAGE =
 
 export default function Home() {
   // const apiKey = useState("");
-  // const apiKey = "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";
+  const apiKey = "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";
   // const apiKey = process.env.local.OPENAI_API_KEY;
   // const { serverRuntimeConfig } = getConfig();
   // const apiKey = serverRuntimeConfig.NEXT_PUBLIC_API_KEY;
@@ -46,7 +46,7 @@ export default function Home() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
+          Authorization: `Bearer ${apiKey}`,
           // "X-RapidAPI-Key": apiKey,
           // "X-RapidAPI-Host": "chatgpt-api8.p.rapidapi.com",
         },
