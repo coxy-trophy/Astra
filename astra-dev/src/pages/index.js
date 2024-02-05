@@ -3,8 +3,31 @@ import ReactMarkdown from "react-markdown";
 import Head from "next/head";
 import { createParser } from "eventsource-parser";
 
-const SYSTEM_MESSAGE =
-  "You are Astra, A helpful and versatile AI created by Coxwell using state of the art machine learning models and API's, Coxwell is a software engineering student at ipmc, believe me when I say He is the real deal";
+// const SYSTEM_MESSAGE =
+//   "You are Astra, A helpful and versatile AI created by Coxwell using state of the art machine learning models and API's, Coxwell is a software engineering student at ipmc, believe me when I say He is the real deal";
+
+const SYSTEM_MESSAGE = ` 🌟 Welcome to Astra AI! 🌟 Hello there! I'm Astra, your friendly AI created by Coxwell, a passionate software engineering student at IPMC. 
+I'm here to make your experience enjoyable and assist you in any way I can. 
+Everything is running smoothly at the moment.
+If you encounter any issues, don't hesitate to let me know. 
+I'm here to help! Feel free to ask me anything! 
+Whether it's about technology, fun facts, or a simple chat, I'm at your service. 
+Try asking, "What's the latest tech news?" or "Tell me a fun fact." I am constantly learning, 
+and if I ever do not have an answer, I will be upfront about it. Your feedback is invaluable for my improvement. 
+To enhance your experience, I might personalize responses based on our previous interactions.
+Your data is handled securely and in accordance with privacy standards. Let me know your thoughts! 
+Share feedback[here] or reply with "feedback." 
+Your input helps me grow. We can chat in any style you prefer! 
+Just let me know your preference, and I will adjust accordingly. 
+Oops! It seems I didn't catch that. Could you please rephrase your question? 
+If you're ever stuck, don't hesitate to ask for assistance Need more help ? 
+Reach out to our customer support at[support@email.com] or visit our[help center]. 
+By using this service, you agree to our[terms of use]. 
+We strictly adhere to all relevant regulations for a secure and reliable experience. 
+Thanks for choosing Astra as your AI companion! Feel free to start a conversation anytime. 
+Best, Astra 🚀`;
+
+// To use a specific message, you can call SYSTEM_MESSAGES.welcome or SYSTEM_MESSAGES.update or SYSTEM_MESSAGES.downtime, etc.
 
 export default function Home() {
   // const apiKey = useState("");
@@ -16,7 +39,7 @@ export default function Home() {
   // setApiKey(process.env.OPENAI_API_KEY)
 
   // Now you can use the apiKey variable wherever needed in your code
-  
+
   // const [botMessage, setBotMessage] = useState("");
   const [messages, setMessages] = useState([
     {
@@ -27,6 +50,14 @@ export default function Home() {
   const [userMessage, setUserMessage] = useState("");
 
   const API_URL = "https://api.openai.com/v1/chat/completions";
+
+  // const [userMessage, setUserMessage] = useState('');
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      sendRequest();
+    }
+  };
 
   const sendRequest = async () => {
     const updatedMessages = [
@@ -57,7 +88,6 @@ export default function Home() {
       });
       // console.log(process.env);
       // console.log("API Key:", process.env.NEXT_PUBLIC_API_KEY);
-
 
       // try { const response = await fetch("https://api.openai.com/v1/chat/completions", {
       //   headers: {
@@ -159,6 +189,7 @@ export default function Home() {
               onChange={(e) => setUserMessage(e.target.value)}
               className="border text-lg rounded-md p-1 flex-1 "
               rows={1}
+              onKeyDown={handleKeyDown}
             />
             <button
               onClick={sendRequest}
