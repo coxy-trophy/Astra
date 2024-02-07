@@ -1,3 +1,6 @@
 {
-    "eslint.workingDirectories": ["./astra-dev"]
+  "eslint.workingDirectories": [
+    
+    "./astra-dev"],
+  "editor.tabSize": 2
 }
