@@ -6,10 +6,14 @@ export const config = {
   runtime: "edge",
 };
 
+
+
 async function handler(req, res) {
   const supabase = createMiddlewareSupabaseClient({ req, res });
   const authenticated = await verifyServerSideAuth(supabase, req.headers);
   const headers = getChatResponseHeaders();
+
+  const apiKey = "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";
 
   if (!authenticated) {
     return new Response(`{ "message": "Unauthorized"}`, { status: 401, headers });
@@ -31,7 +35,8 @@ async function handler(req, res) {
     const res = await fetch("https://api.openai.com/v1/chat/completions", {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+        Authorization: `Bearer ${apiKey}`,
+        // Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
       },
       method: "POST",
       body: JSON.stringify(body),
