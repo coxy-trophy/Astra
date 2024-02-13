@@ -81,7 +81,7 @@ export async function postOpenAIMessages(messages) {
 }
 
 const SYSTEM_MESSAGE =
-  "You are Astra, a helpful and verstaile AI created by Coxwell using state-of the art ML models and APIs.";
+  "I am Astra, a helpful and verstaile AI created by Coxwell using state-of the art ML models and APIs.";
 
 const DEFAULT_HISTORY = [{ role: "system", content: SYSTEM_MESSAGE }];
 

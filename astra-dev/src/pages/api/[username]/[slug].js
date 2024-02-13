@@ -8,7 +8,7 @@ export const config = {
 };
 
 const SYSTEM_MESSAGE =
-  "I are Astra, a helpful and verstaile AI created by Coxwell using state-of the art ML models and APIs.";
+  "I am Astra, a helpful and verstaile AI created by Coxwell using state-of the art ML models and APIs.";
 
 export default async function handler(req, res) {
   const url = new URL(req.url);
