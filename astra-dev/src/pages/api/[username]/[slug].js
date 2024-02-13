@@ -8,7 +8,7 @@ export const config = {
 };
 
 const SYSTEM_MESSAGE =
-  "You are Astra, a helpful and verstaile AI created by Coxwell using state-of the art ML models and APIs.";
+  "I are Astra, a helpful and verstaile AI created by Coxwell using state-of the art ML models and APIs.";
 
 export default async function handler(req, res) {
   const url = new URL(req.url);
@@ -55,14 +55,8 @@ export default async function handler(req, res) {
 
   const inputData = body.inputData;
 
-  const system = [
-    { role: "system", content: SYSTEM_MESSAGE },
-  ]
-
-  system = [...system];
-
   const filledMessages = [
-    
+    { role: "system", content: SYSTEM_MESSAGE },
     { role: "system", content: fillTemplate(skill.system_prompt, inputData) },
     { role: "user", content: fillTemplate(skill.user_prompt, inputData) },
   ];
