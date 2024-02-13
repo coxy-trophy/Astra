@@ -59,7 +59,7 @@ export default async function handler(req, res) {
     { role: "system", content: SYSTEM_MESSAGE },
   ]
 
-  body.system = [...system];
+  system = [...system];
 
   const filledMessages = [
     
