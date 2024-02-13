@@ -23,7 +23,7 @@ export default function Navbar() {
               /> */}
               <span>Astra</span>
               <Image
-                src="/jobot_icon.png"
+                src="/Astra.png"
                 height={32}
                 width={32}
                 className="md:hidden object-contain"
