@@ -55,8 +55,14 @@ export default async function handler(req, res) {
 
   const inputData = body.inputData;
 
-  const filledMessages = [
+  const system = [
     { role: "system", content: SYSTEM_MESSAGE },
+  ]
+
+  body.system = [...system];
+
+  const filledMessages = [
+    
     { role: "system", content: fillTemplate(skill.system_prompt, inputData) },
     { role: "user", content: fillTemplate(skill.user_prompt, inputData) },
   ];
