@@ -62,10 +62,10 @@ export default function ConversationPage({ conversation }) {
   return (
     <>
       <Head>
-        <title>{`${conversation.title} - Jobot`}</title>
+        <title>{`${conversation.title} - Astra`}</title>
         <meta
           name="description"
-          content="Jobot is a general purpose, programmable & extensible AI being developed by Jovian, using state of the art machine learning models and APIs."
+          content="Astra is a general purpose, programmable & extensible AI being developed by Coxwell, using state of the art machine learning models and APIs."
         />
         <link rel="icon" href="/jobot_icon.png" type="image/png" />
         <meta property="og:image" content="/jobot_meta.png" />
