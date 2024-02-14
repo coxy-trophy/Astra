@@ -42,7 +42,7 @@ export default function Login() {
                 placeholder="john@doe.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                name="profileData.email"
+                name={profileData.email}
                 
               />
               <button
