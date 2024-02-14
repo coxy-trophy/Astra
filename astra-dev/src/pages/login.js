@@ -1,33 +1,23 @@
 import Navbar from "@/components/Navbar";
 import { submitVerificationCode } from "@/network";
-import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { sendVerificationCode } from "../network";
-import { fetchUserProfile, updateUserProfile } from "@/network";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
-  const user = useUser();
-  const [profileData, setProfileData] = useState({});
+
   const router = useRouter();
   const supabase = useSupabaseClient();
-
-  useEffect(() => {
-    fetchUserProfile(supabase, user).then((data) => setProfileData(data));
-  }, [supabase, user, setProfileData, router]);
-
-  const makeOnChange = (field) => (e) =>
-    setProfileData({ ...profileData, [field]: e.target.value });
 
   async function handleSubmit() {
     const success = await submitVerificationCode(supabase, email, code);
     success && router.push("/account");
-    updateUserProfile(supabase, profileData);
   }
 
   return (
@@ -47,14 +37,11 @@ export default function Login() {
             <div className=" flex flex-col my-4">
               <label className="font-medium text-gray-600">Email</label>
               <input
-                field="email"
+                type="email"
                 className="border p-2 rounded-md mt-1"
                 placeholder="john@doe.com"
-                value={profileData.email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                  makeOnChange("email")(e);
-                }}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <button
                 className="w-40 border text-sm font-medium px-4 py-2 mt-2 rounded-md bg-gray-50 hover:bg-gray-100"
