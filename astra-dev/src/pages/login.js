@@ -4,13 +4,15 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { sendVerificationCode } from "../network";
+import { fetchUserProfile, updateUserProfile } from "@/network";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
+  const user = useUser();
   const [profileData, setProfileData] = useState({});
 
   useEffect(() => {
@@ -27,6 +29,11 @@ export default function Login() {
   async function handleSubmit() {
     const success = await submitVerificationCode(supabase, email, code);
     success && router.push("/account");
+    updateUserProfile(supabase, profileData);
+  }
+
+  if (!profileData) {
+    return null;
   }
 
   return (
