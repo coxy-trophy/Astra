@@ -12,15 +12,29 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
 
-  const router = useRouter();
-  const supabase = useSupabaseClient();
-
-  const makeOnChange = (field) => (e) =>
-  setProfileData({ ...profileData, [field]: e.target.value });
-
   async function handleSubmit() {
     const success = await submitVerificationCode(supabase, email, code);
     success && router.push("/account");
+    updateUserProfile(supabase, profileData);
+  }
+
+  const [profileData, setProfileData] = useState({});
+
+  useEffect(() => {
+    fetchUserProfile(supabase, user).then((data) => setProfileData(data));
+  }, [supabase, user, setProfileData, router]);
+
+  const makeOnChange = (field) => (e) =>
+    setProfileData({ ...profileData, [field]: e.target.value });
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    updateUserProfile(supabase, profileData);
+  }
+
+  if (!profileData) {
+    return null;
   }
 
   return (
