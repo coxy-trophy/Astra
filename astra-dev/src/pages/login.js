@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { sendVerificationCode } from "../network";
+import { fetchUserProfile, updateUserProfile } from "@/network";
+import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
 
 export default function Login() {
   const [email, setEmail] = useState("");
