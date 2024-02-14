@@ -15,6 +15,9 @@ export default function Login() {
   const router = useRouter();
   const supabase = useSupabaseClient();
 
+  const makeOnChange = (field) => (e) =>
+  setProfileData({ ...profileData, [field]: e.target.value });
+
   async function handleSubmit() {
     const success = await submitVerificationCode(supabase, email, code);
     success && router.push("/account");
