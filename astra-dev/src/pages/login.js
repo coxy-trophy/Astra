@@ -14,6 +14,8 @@ export default function Login() {
   const [code, setCode] = useState("");
   const user = useUser();
   const [profileData, setProfileData] = useState({});
+  const router = useRouter();
+  const supabase = useSupabaseClient();
 
   useEffect(() => {
     fetchUserProfile(supabase, user).then((data) => setProfileData(data));
@@ -22,18 +24,10 @@ export default function Login() {
   const makeOnChange = (field) => (e) =>
     setProfileData({ ...profileData, [field]: e.target.value });
 
-
-  const router = useRouter();
-  const supabase = useSupabaseClient();
-
   async function handleSubmit() {
     const success = await submitVerificationCode(supabase, email, code);
     success && router.push("/account");
     updateUserProfile(supabase, profileData);
-  }
-
-  if (!profileData) {
-    return null;
   }
 
   return (
