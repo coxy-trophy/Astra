@@ -48,7 +48,6 @@ export default function Login() {
               <label className="font-medium text-gray-600">Email</label>
               <input
                 field="email"
-                type="email"
                 className="border p-2 rounded-md mt-1"
                 placeholder="john@doe.com"
                 value={profileData.email}
