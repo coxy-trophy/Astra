@@ -4,11 +4,10 @@ import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
 import Head from "next/head";
 import Link from "next/link";
 // import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { sendVerificationCode } from "../network";
 import { fetchUserProfile, updateUserProfile } from "@/network";
-import { useEffect, useState } from "react";
 
 export default function Login() {
   const [email, setEmail] = useState("");
