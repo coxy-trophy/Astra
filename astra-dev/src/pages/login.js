@@ -41,9 +41,10 @@ export default function Login() {
                 className="border p-2 rounded-md mt-1"
                 placeholder="john@doe.com"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                name={profileData.email}
-                
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  makeOnChange("email")(e);
+                }}
               />
               <button
                 className="w-40 border text-sm font-medium px-4 py-2 mt-2 rounded-md bg-gray-50 hover:bg-gray-100"
