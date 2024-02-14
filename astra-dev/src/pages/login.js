@@ -11,6 +11,15 @@ import { sendVerificationCode } from "../network";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
+  const [profileData, setProfileData] = useState({});
+
+  useEffect(() => {
+    fetchUserProfile(supabase, user).then((data) => setProfileData(data));
+  }, [supabase, user, setProfileData, router]);
+
+  const makeOnChange = (field) => (e) =>
+    setProfileData({ ...profileData, [field]: e.target.value });
+
 
   const router = useRouter();
   const supabase = useSupabaseClient();
@@ -40,8 +49,11 @@ export default function Login() {
                 type="email"
                 className="border p-2 rounded-md mt-1"
                 placeholder="john@doe.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={profileData.email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  makeOnChange("email")(e);
+                }}
               />
               <button
                 className="w-40 border text-sm font-medium px-4 py-2 mt-2 rounded-md bg-gray-50 hover:bg-gray-100"
