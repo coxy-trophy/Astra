@@ -69,6 +69,13 @@ export default function AccountPage() {
                 onChange={makeOnChange("last_name")}
               />
 
+              <TextInput
+                field="email"
+                label="Update Email"
+                value={profileData.email}
+                onChange={makeOnChange("email")}
+              />
+
               <TextArea
                 field="bio"
                 label="Bio"
