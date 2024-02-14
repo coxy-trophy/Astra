@@ -40,7 +40,7 @@ export default function Login() {
                 type="email"
                 className="border p-2 rounded-md mt-1"
                 placeholder="john@doe.com"
-                value={email}
+                value={profileData.email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <button
