@@ -27,12 +27,6 @@ export default function Login() {
   const makeOnChange = (field) => (e) =>
     setProfileData({ ...profileData, [field]: e.target.value });
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    updateUserProfile(supabase, profileData);
-  }
-
   if (!profileData) {
     return null;
   }
