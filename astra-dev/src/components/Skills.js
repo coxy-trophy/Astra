@@ -43,7 +43,7 @@ const Skills = () => {
         >
           {skills.map((skill) => (
             <li
-              className="group col-span-1 cursor-pointer divide-y divide-gray-200 rounded-lg border bg-gray-500 hover:shadow"
+              className="group col-span-1 cursor-pointer divide-y divide-gray-200 rounded-lg border bg-gray-300 hover:shadow"
               key={skill.slug}
             >
               <Link href={`/${skill.profiles.username}/${skill.slug}`}>
