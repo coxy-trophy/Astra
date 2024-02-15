@@ -11,16 +11,16 @@ export default function Navbar() {
     <>
       <nav className="shadow px-2 z-40">
         <div className="flex w-full max-w-4xl py-3 items-center justify-between mx-auto">
-          <div className="text-2xl font-medium text-gray-800 flex items-center">
+          <div className="text-2xl font-medium text-white flex items-center">
             <Link href="/">
-              {/* <Image
-                src="/jobot_text_logo.png"
+              <Image
+                src="/Astra.png"
                 height={32}
                 width={117}
                 className="hidden md:block object-contain"
                 alt="logo"
                 unoptimized
-              /> */}
+              />
               <span>Astra</span>
               <Image
                 src="/Astra.png"
@@ -33,27 +33,27 @@ export default function Navbar() {
             </Link>
           </div>
           <div>
-            <Link href="/" className="text-gray-500 hover:text-blue-600 ml-4">
+            <Link href="/" className="text-white hover:text-blue-600 ml-4">
               Home
             </Link>
             <Link
               href="/build"
-              className="text-gray-500 hover:text-blue-600 ml-4"
+              className="text-white hover:text-blue-600 ml-4"
             >
               Build
             </Link>
-            <Link
+            {/* <Link
               href="https://github.com/jovianhq/jobot"
-              className="text-gray-500 hover:text-blue-600 ml-4"
+              className="text-white hover:text-blue-600 ml-4"
               target="_blank"
               rel="noreferrer"
             >
               Docs
-            </Link>
+            </Link> */}
             {user ? (
               <Link
                 href="/account"
-                className="text-gray-500 hover:text-blue-600 ml-4"
+                className="text-white hover:text-blue-600 ml-4"
               >
                 Account
               </Link>
@@ -64,7 +64,7 @@ export default function Navbar() {
                   e.preventDefault();
                   setLoginOpen(true);
                 }}
-                className="text-gray-500 hover:text-blue-600 ml-4"
+                className="text-white hover:text-blue-600 ml-4"
               >
                 Log In
               </Link>

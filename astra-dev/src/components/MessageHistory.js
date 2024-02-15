@@ -13,7 +13,7 @@ const MessageHistory = ({ history }) => {
 
   return (
     <div
-      className="flex-1 overflow-y-auto py-2 px-2"
+      className="flex-1 overflow-y-auto py-2 px-2 text-white"
       ref={(el) => (messagesWindow.current = el)}
     >
       {history
