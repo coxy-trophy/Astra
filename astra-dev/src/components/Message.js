@@ -25,7 +25,7 @@ const Message = ({ role, content }) => {
           </span>
         </div>
 
-        <div className="text-lg prose">
+        <div className="text-lg prose text-white">
           <ReactMarkdown>{content}</ReactMarkdown>
         </div>
       </div>
