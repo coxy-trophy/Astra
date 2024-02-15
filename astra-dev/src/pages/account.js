@@ -36,6 +36,7 @@ export default function AccountPage() {
   return (
     <>
       <Head>
+        <link rel="manifest" href={process.env.MANIFEST_JSON} />
         <title>Manage Account - Astra</title>
       </Head>
       <div className="flex flex-col h-screen">

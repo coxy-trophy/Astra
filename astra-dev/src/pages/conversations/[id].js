@@ -62,6 +62,7 @@ export default function ConversationPage({ conversation }) {
   return (
     <>
       <Head>
+        <link rel="manifest" href={process.env.MANIFEST_JSON} />
         <title>{`${conversation.title} - Astra`}</title>
         <meta
           name="description"

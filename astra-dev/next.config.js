@@ -4,3 +4,14 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
+
+module.exports = {
+  webpack: (config) => {
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env.MANIFEST_JSON': JSON.stringify('/manifest.json')
+      })
+    )
+    return config
+  }
+}

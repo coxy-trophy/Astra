@@ -54,6 +54,7 @@ export default function BuildPage() {
   return (
     <>
       <Head>
+        <link rel="manifest" href={process.env.MANIFEST_JSON} />
         <title>Build a Skill - Astra</title>
       </Head>
       <div className="flex flex-col h-screen">

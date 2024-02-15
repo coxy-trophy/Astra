@@ -64,6 +64,7 @@ export default function Home() {
   return (
     <>
       <Head>
+        <link rel="manifest" href={process.env.MANIFEST_JSON} />
         <title>Astra - The AI That Does Everything</title>
         <meta
           name="description"
