@@ -13,14 +13,14 @@ export default function Navbar() {
         <div className="flex w-full max-w-4xl py-3 items-center justify-between mx-auto">
           <div className="text-2xl font-medium text-white flex items-center">
             <Link href="/">
-              <Image
+              {/* <Image
                 src="/Astra.png"
                 height={32}
                 width={117}
                 className="hidden md:block object-contain"
                 alt="logo"
                 unoptimized
-              />
+              /> */}
               <span>Astra</span>
               <Image
                 src="/Astra.png"
