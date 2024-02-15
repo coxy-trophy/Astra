@@ -35,7 +35,7 @@ const Skills = () => {
   }, [setSkills, supabase]);
 
   return (
-    <div className="px-2 pb-6 bg-slate-500">
+    <div className="px-2 pb-6">
       <div className="mx-auto max-w-4xl overflow-y-auto w-full">
         <ul
           role="list"
@@ -43,7 +43,7 @@ const Skills = () => {
         >
           {skills.map((skill) => (
             <li
-              className="group col-span-1 cursor-pointer divide-y divide-gray-200 rounded-lg border bg-white hover:shadow"
+              className="group col-span-1 cursor-pointer divide-y divide-gray-200 rounded-lg border bg-gray-500 hover:shadow"
               key={skill.slug}
             >
               <Link href={`/${skill.profiles.username}/${skill.slug}`}>
