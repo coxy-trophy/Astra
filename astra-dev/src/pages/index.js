@@ -65,7 +65,7 @@ export default function Home() {
     <>
       <Head>
         <link rel="manifest" href={process.env.MANIFEST_JSON} />
-        <title>Astra - The AI That Does Everything</title>
+        <title className="text-black">Astra - The AI That Does Everything</title>
         <meta
           name="description"
           content="Astra is a general purpose, programmable & extensible AI being developed by Coxwell, using state of the art machine learning models and APIs."
