@@ -58,15 +58,15 @@ const LeftSidebar = () => {
     <div className="hidden h-full lg:inset-y-0 lg:z-50 lg:flex w-72">
       <div
         className={cn(
-          "flex grow flex-col gap-2 overflow-y-auto border-r border-gray-200 bg-white p-2 pt-0 ",
+          "flex grow flex-col gap-2 overflow-y-auto border-r border-gray-200 bg-zinc-900 p-2 pt-0 ",
           !show && "invisible"
         )}
       >
-        <div className="sticky top-0 flex items-center bg-white pt-2 ">
+        <div className="sticky top-0 flex items-center bg-zinc-900 pt-2 ">
           <Link
             className={cn(
-              "flex flex-1 cursor-pointer items-center rounded-md border p-2 text-gray-500 hover:bg-gray-50 hover:text-gray-900 ",
-              !query.id && "bg-gray-100 font-semibold text-gray-600"
+              "flex flex-1 cursor-pointer items-center rounded-md border p-2 text-gray-200 hover:bg-gray-50 hover:text-gray-900 ",
+              !query.id && "bg-zinc-900 font-semibold text-gray-200"
             )}
             href="/"
           >
@@ -75,7 +75,7 @@ const LeftSidebar = () => {
           </Link>
 
           <button
-            className="rounded-full ml-2 flex items-center justify-center p-2 hover:bg-gray-100 text-gray-400 text-lg"
+            className="rounded-full ml-2 flex items-center justify-center p-2 hover:bg-gray-100 text-gray-200 text-lg"
             title="Hide"
             onClick={() => setShow(false)}
           >
@@ -87,9 +87,9 @@ const LeftSidebar = () => {
           <Link
             key={conversation.id}
             className={cn(
-              "flex cursor-pointer items-center rounded-md p-3 text-gray-500 hover:bg-gray-50 hover:text-gray-900",
+              "flex cursor-pointer items-center rounded-md p-3 text-gray-200 hover:bg-gray-400 hover:text-gray-900",
               conversation.id == query.id &&
-                "bg-gray-100 font-semibold text-gray-600"
+                "bg-gray-400 font-semibold text-gray-900"
             )}
             href={`/conversations/${conversation.id}`}
           >
