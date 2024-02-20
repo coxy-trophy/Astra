@@ -71,7 +71,7 @@ export default function SkillPage({ skill }) {
       <Head>
         <title>{`${skill.title} - Astra`}</title>
         <meta name="description" content={skill.description} />
-        <link rel="icon" href="/Astra.png" type="image/png" />
+        <link rel="icon" href="/Astra.jpeg" type="image/png" />
         <meta property="og:image" content="/jobot_meta.png" />
       </Head>
       <Layout>

@@ -68,7 +68,7 @@ export default function ConversationPage({ conversation }) {
           name="description"
           content="Astra is a general purpose, programmable & extensible AI being developed by Coxwell, using state of the art machine learning models and APIs."
         />
-        <link rel="icon" href="/Astra.png" type="image/png" />
+        <link rel="icon" href="/Astra.jpeg" type="image/png" />
         <meta property="og:image" content="/jobot_meta.png" />
       </Head>
 

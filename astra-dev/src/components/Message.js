@@ -9,8 +9,8 @@ const Message = ({ role, content }) => {
           role === "user"
             ? "/profile_placeholder.png"
             : role === "assistant"
-            ? "/Astra.png"
-            : "/Astra.png"
+            ? "/Astra.jpeg"
+            : "/Astra.jpeg"
         }
         height={40}
         width={40}
